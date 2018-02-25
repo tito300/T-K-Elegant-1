@@ -6,7 +6,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 .fade-top {
@@ -33,10 +33,10 @@
 
 .container {
 
-    border: 1px solid rgb(75, 219, 255);
+    /* border: 1px solid rgb(75, 219, 255); */
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 24vh;
+    margin-top: 3vh;
     /* display: flex;
     justify-content: space-around; */
     margin-bottom: 3000px;
@@ -46,23 +46,28 @@
 
 .content {
 
-    border: 1px solid rgb(255, 0, 0);
+    /* border: 1px solid rgb(255, 0, 0); */
     text-align: center;
-    width: 99%;
-    font-size: 5.5vw;
+    width: 100%;
+    font-size: 5vw;
     font-family: futura;
     display: flex;
     justify-content: center;
-    letter-spacing: 18px;
+    letter-spacing: 1.5vw;
     font-weight: 200;
     color: rgb(41, 41, 41);
 }
 
 span {
 
-    border: 1px solid rgb(0, 201, 0);
+    /* border: 1px solid rgb(0, 201, 0); */
     transition: all 0.2s;
 
+}
+
+.content  span:first-child {
+
+    margin-left: 2vw;
 }
 
 #k {
@@ -77,11 +82,76 @@ span:hover {
 
 .meta {
 
-    border: 1px dashed rgb(173, 0, 179);
+    /* border: 1px dashed rgb(173, 0, 179); */
     text-align: center;
     font-family: futura;
     font-size: 1.5vw;
     margin-top: -0.8%;
     font-weight: 100;
     color: rgb(71, 71, 71);
+}
+
+/* ------------- NAV BAR --------------- */
+
+.menu {
+
+    margin-bottom: 30vh;
+} 
+
+.list {
+
+    
+    /* border: 2px dashed rgb(115, 255, 0); */
+
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    
+    
+}
+
+.list-item {
+     
+    /* border: 2px dashed rgb(255, 0, 0); */
+    font-family: futura;
+    font-size: 1.2vw;
+    padding-left: 1.2vw; 
+    padding-right: 1.2vw; 
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    
+}
+
+.list a {
+
+    color: rgb(199, 199, 199);
+    text-decoration: none;
+    transition: all 0.15s;
+    position: relative;
+    padding: 6px 0;
+}
+
+/* .list-item:hover a {
+
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(199, 199, 199);
+} */
+
+.list a:before {
+    content: "";
+    position: absolute;
+    background-color: rgb(177, 177, 177);
+    height: 2px;
+    width: 0;
+    widows: 0;
+    left: 0;
+    bottom: 0;
+    transition: all 0.2s ease-in;
+
+}
+
+.list a:hover:before {
+
+    width: 100%;
+    background-color: rgb(0, 0, 0);
 }
