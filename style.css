@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'futura';
+    src: url(/fonts/futura.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fade-top {
+
+    height: 1px;
+    background-color: white;
+    box-shadow: 0 0 50px 20px white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.fade-bottom {
+
+    height: 1px;
+    background-color: white;
+    box-shadow: 0 0 110px 80px white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.container {
+
+    border: 1px solid rgb(75, 219, 255);
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 24vh;
+    /* display: flex;
+    justify-content: space-around; */
+    margin-bottom: 3000px;
+
+
+}
+
+.content {
+
+    border: 1px solid rgb(255, 0, 0);
+    text-align: center;
+    width: 99%;
+    font-size: 5.5vw;
+    font-family: futura;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 18px;
+    font-weight: 200;
+    color: rgb(41, 41, 41);
+}
+
+span {
+
+    border: 1px solid rgb(0, 201, 0);
+    transition: all 0.2s;
+
+}
+
+#k {
+
+    padding-right: 3vw;
+}
+
+span:hover {
+
+    transform: scale(1.1);
+}
+
+.meta {
+
+    border: 1px dashed rgb(173, 0, 179);
+    text-align: center;
+    font-family: futura;
+    font-size: 1.5vw;
+    margin-top: -0.8%;
+    font-weight: 100;
+    color: rgb(71, 71, 71);
+}
