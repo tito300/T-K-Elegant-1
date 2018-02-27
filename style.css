@@ -8,6 +8,7 @@
     padding: 0;
     /* box-sizing: border-box; */
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 .fade-top {
@@ -40,8 +41,7 @@
     margin-top: 3vh;
     /* display: flex;
     justify-content: space-around; */
-    /* margin-bottom: 3000px; */
-
+    /* margin-bottom: 3000px; */ 
 
 }
 
@@ -50,7 +50,7 @@
     /* border: 1px solid rgb(255, 0, 0); */
     text-align: center;
     width: 100%;
-    font-size: 5vw;
+    font-size:6rem;
     font-family: futura;
     display: flex;
     justify-content: center;
@@ -121,7 +121,7 @@ span:hover {
      
     /* border: 2px dashed rgb(255, 0, 0); */
     font-family: futura;
-    font-size: 1.2vw;
+    font-size: 1.4rem;
     padding-left: 1.2vw; 
     padding-right: 1.2vw; 
     font-weight: 100;
@@ -189,10 +189,10 @@ span:hover {
     
 }
 
-.list-item:hover .sub-menu {
+.list-item:hover > .sub-menu {
     pointer-events: fill;
     opacity: 1;
-    height: 250px;
+    min-height: 300px;
 }
 
 
@@ -223,7 +223,7 @@ span:hover {
 
 .sub-menu .sub-list {
         
-    padding: 30px 100px 30px 40px;
+    padding: 50px 150px 70px 60px;
 
     min-width: 150px;
 
@@ -232,21 +232,22 @@ span:hover {
 .sub-menu li {
 
     list-style-type: none;
-    padding-bottom: 5px;
+    padding-bottom: 0.2rem;
 
 }
 
-.sub-menu a {
+.sub-menu .sub-list a {
 
     font-family: arial;
     font-size: 1rem;
     font-weight: 400;
     color: rgb(255, 255, 255);
+    transition: all 0.1s;
 }
 
 .sub-menu a:hover {
 
-    color: rgb(153, 160, 255);
+    color: rgb(255, 199, 94);
 }
 
 
@@ -336,7 +337,7 @@ span:hover {
     transform: translate(-100%);
     opacity: 0;
     /* transition: all 0.3s cubic-bezier(0.42, 0, 0.34, 1.24); */
-    transition: all 0.4s cubic-bezier(0.85, 0.05, 0.24, 1.40);
+    transition: all 0.5s cubic-bezier(0.85, 0.05, 0.24, 1.40);
 }
 
 .text-content p {
@@ -369,7 +370,8 @@ span:hover {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover,
+.text-area .btn-2:hover {
 
     background-color: rgb(255, 255, 255);
     color: rgb(41, 41, 41);
@@ -393,6 +395,8 @@ span:hover {
     animation-iteration-count: 5;
     /* animation-delay: 1s; */
     cursor: pointer;
+    animation-fill-mode: forwards;
+
 
 
 }
@@ -409,6 +413,7 @@ span:hover {
     animation-name: inOut;
     animation-duration: 2s;
     animation-iteration-count: 5;
+    animation-fill-mode: forwards;
 }
 
 @keyframes inOut {
@@ -429,20 +434,7 @@ span:hover {
     }
 }
 
-/* .arrow::after {
 
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgb(31, 31, 31);
-    mix-blend-mode: multiply;
-} */
-
-/* .arrow:hover {
-
-    transform: scale(1.2);
-} */
 
 /* ------- model---------- */
 
@@ -469,10 +461,12 @@ span:hover {
 
 @keyframes hide {
     0% {
+
         display: flex;
         opacity: 1;
     }
     100% {
+
         display: none;
         opacity: 0;
     }
@@ -498,8 +492,9 @@ span:hover {
 
     /* border: 2px dashed rgb(38, 0, 255); */
 
-    min-height: 400px;
-    max-width: 800px;
+    min-height: 500px;
+    min-width: 40vw;
+    max-width: 1000px;
     background-color: rgb(245, 248, 255);
     display: flex;
     /* flex-wrap: wrap; */
@@ -520,18 +515,20 @@ span:hover {
     /* flex-grow: 3; */
     display: flex;
     flex-direction: column;
+    flex-grow: 2;
     padding: 40px 70px;
+
 }
 
 .box .img-1 {
 
     /* border: 2px dashed rgb(0, 224, 75); */
     background-image: url(imgs/bus-1.jpg);
-    min-width: 40%;
+    min-width: 320px;
     background-position: center right;
     background-size: cover;
     background-repeat: no-repeat;
-    /* flex-grow: 2; */
+    /* flex-grow: 1; */
 }
 
 
@@ -541,9 +538,13 @@ span:hover {
 
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    align-self: baseline;
+    border-bottom: 2px solid rgb(235, 235, 235);
+    padding-bottom: 15px;
+    margin-bottom: 2rem;
     color: rgb(41, 41, 41);
+    min-width: 10vh;
 }
 
 .text-area .discription {
@@ -553,7 +554,7 @@ span:hover {
     color: rgb(71, 71, 71);
     font-family: sans-serif;
     line-height: 1.7rem;
-    margin-bottom: 0.9rem;
+    margin-bottom: 50px;
 }
 
 .box-form {
@@ -561,6 +562,23 @@ span:hover {
 
     display: flex;
     justify-content: flex-start;
+}
+
+.contact-us .box-form {
+
+    flex-direction: column;
+    /* align-self: baseline; */
+}
+
+.contact-us .box-form .btn-2 {
+
+    align-self: baseline;
+}
+
+.contact-us .box-form textarea {
+    /* width: 20px; */
+    height: 200px;
+    margin-bottom: 10px;
 }
 
 .text-area .btn-2 {

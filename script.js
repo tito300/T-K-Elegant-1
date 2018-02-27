@@ -46,23 +46,39 @@ function animateDom(e) {
 
 
 discoverBtn.addEventListener("click", openBoxModel)
+document.querySelector(".contact").addEventListener("click", openBoxModel);
+document.querySelectorAll(".model").forEach((c)=> {c.addEventListener("click", closeModelBox)});
 
 function openBoxModel(e) {
+    // debugger;
+    if(e.target.classList.contains("contact")) {
+        // debugger;
+        document.querySelector(".contact-us").style.display = "flex";
+        document.querySelector(".contact-us").classList.remove("hideAfter");
+        document.querySelector(".contact-us").classList.add("show-flex");  
+    } else {
 
-
-    document.querySelector(".model").style.display = "flex";
-    document.querySelector(".model").classList.remove("hideAfter");
-    document.querySelector(".model").classList.add("show-flex");    
+        document.querySelector(".model").style.display = "flex";
+        document.querySelector(".model").classList.remove("hideAfter");
+        document.querySelector(".model").classList.add("show-flex");    
+    }
 }
 
-document.querySelector(".model").addEventListener("click", closeModelBox);
+
+
 
 function closeModelBox(e) {
 
     console.log("click");
+    // debugger;
+    if (e.target.classList.contains("x") || e.target.classList.contains("model")) {
+        // debugger;
+        document.querySelector(".model").style.display = "none";
+        document.querySelector(".contact-us").style.display = "none";
 
-    if (e.target.classList.contains("x") || e.target.classList.contains("model"))
-    document.querySelector(".model").style.display = "none";
+
+    }
+    
     // document.querySelector(".model").classList.remove("show-flex");
     // document.querySelector(".model").classList.add("hideAfter");
 }
