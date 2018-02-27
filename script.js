@@ -3,6 +3,7 @@ const imgH2 = document.querySelector("h2");
 const imgP = document.querySelector(".text");
 const imgArrow = document.querySelector(".arrow");
 const imgScroll = document.querySelector(".scroll");
+const discoverBtn = document.querySelector(".btn");
 
 
 
@@ -12,7 +13,7 @@ window.addEventListener("scroll", animateDom);
 function animateDom(e) {
 
 
-    let offset = (imgH2.getBoundingClientRect().top - window.innerHeight) / 9;
+    let offset = (imgH2.getBoundingClientRect().top - window.innerHeight) / 7;
 
     // console.log(window.scrollY);
 
@@ -42,3 +43,26 @@ function animateDom(e) {
            setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 1000)
         }
         }
+
+
+discoverBtn.addEventListener("click", openBoxModel)
+
+function openBoxModel(e) {
+
+
+    document.querySelector(".model").style.display = "flex";
+    document.querySelector(".model").classList.remove("hideAfter");
+    document.querySelector(".model").classList.add("show-flex");    
+}
+
+document.querySelector(".model").addEventListener("click", closeModelBox);
+
+function closeModelBox(e) {
+
+    console.log("click");
+
+    if (e.target.classList.contains("x") || e.target.classList.contains("model"))
+    document.querySelector(".model").style.display = "none";
+    // document.querySelector(".model").classList.remove("show-flex");
+    // document.querySelector(".model").classList.add("hideAfter");
+}

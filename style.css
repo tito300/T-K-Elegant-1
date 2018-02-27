@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     /* box-sizing: border-box; */
+    text-decoration: none;
 }
 
 .fade-top {
@@ -125,10 +126,11 @@ span:hover {
     padding-right: 1.2vw; 
     font-weight: 100;
     letter-spacing: 0.2rem;
+    position: relative;
     
 }
 
-.list a {
+.list-item > a {
 
     color: rgb(184, 184, 184);
     text-decoration: none;
@@ -137,23 +139,19 @@ span:hover {
     padding: 6px 0;
 }
 
-.list-item a {
+.list-item  a {
 
+    /* border: 1px dashed blue; */
     transition: all 0.3s;
 }
 
-.list-item:hover a {
+.list-item:hover > a {
 
     color: gray;
 }
-
-/* .list-item:hover a {
-
-    padding-bottom: 10px;
-    /* border-bottom: 2px solid rgb(199, 199, 199); */
  
 
-.list a:before {
+.list-item > a:before {
     content: "";
     position: absolute;
     background-color: rgb(177, 177, 177);
@@ -166,11 +164,92 @@ span:hover {
 
 }
 
-.list a:hover:before {
+.list-item > a:hover:before {
 
     width: 100%;
     
 }
+
+/* -------------------- sub menu ----------------------- */
+
+.sub-menu {
+
+    /* border: 1px dashed red; */
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgb(63, 63, 63);
+    z-index: 20;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    height: 0px;
+    transition: all 0.4s;
+    
+}
+
+.list-item:hover .sub-menu {
+    pointer-events: fill;
+    opacity: 1;
+    height: 250px;
+}
+
+
+.sub-menu::before {
+    /* pointer-events: none; */
+    content: "";
+    position: absolute;
+    background-color: rgb(4, 9, 46);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s cubic-bezier(0.74, 0.15, 0.62, 0.42);
+    transition-delay: 0.2s;
+ 
+    
+
+}
+
+
+.list-item:hover .sub-menu::before {
+
+    top: 100%;
+
+}
+
+
+
+.sub-menu .sub-list {
+        
+    padding: 30px 100px 30px 40px;
+
+    min-width: 150px;
+
+}
+
+.sub-menu li {
+
+    list-style-type: none;
+    padding-bottom: 5px;
+
+}
+
+.sub-menu a {
+
+    font-family: arial;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+}
+
+.sub-menu a:hover {
+
+    color: rgb(153, 160, 255);
+}
+
+
 
 /* --------part2-------- */
 
@@ -286,7 +365,7 @@ span:hover {
     background-color: rgb(26, 26, 26);
     border: none;
     box-shadow: 0 5px 10px -5px rgb(83, 83, 83);
-    transition: all 0.2s;
+    transition: all 0.4s;
     cursor: pointer;
 }
 
@@ -367,24 +446,163 @@ span:hover {
 
 /* ------- model---------- */
 
-/* .model {
+.show-flex {
+    animation: show 0.3s ease-in;
+}
+
+@keyframes show {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+.hideAfter {
+
+    transition: hide 0.5s ease-in;
+    /* animation-fill-mode: backwards; */
+}
+
+@keyframes hide {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+
+.model {
 
     display: flex;
-    position: absolute;
-    /* justify-content: center;
-    align-items: center; */
-    /* height: 100vh;
-    width: 100vw; */
-    /* background: red;
+    position: fixed;
+    background: rgba(30, 33, 34, 0.678);
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
     z-index: 10;
-    border: 3px solid green; 
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid green;  */
 
-} */ 
+} 
 .box {
 
+    /* border: 2px dashed rgb(38, 0, 255); */
 
+    min-height: 400px;
+    max-width: 800px;
+    background-color: rgb(245, 248, 255);
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* overflow: hidden; */
+    justify-content: space-around;
+    margin: auto 30px;
+    box-shadow: 0 5px 40px -5px rgb(0, 0, 0);
+    position: relative;
+    /* transition: all 0.3s; */
+    
+
+}
+
+.box .text-area {
+
+    /* border: 2px dashed rgb(12, 0, 187); */
+    /* min-width: 400px; */
+    /* flex-grow: 3; */
+    display: flex;
+    flex-direction: column;
+    padding: 40px 70px;
+}
+
+.box .img-1 {
+
+    /* border: 2px dashed rgb(0, 224, 75); */
+    background-image: url(imgs/bus-1.jpg);
+    min-width: 40%;
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* flex-grow: 2; */
+}
+
+
+.text-area .title {
+
+    /* border: 2px dashed rgb(0, 224, 75); */
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: rgb(41, 41, 41);
+}
+
+.text-area .discription {
+
+    /* border: 2px dashed red; */
+    font-size: 1.2rem;
+    color: rgb(71, 71, 71);
+    font-family: sans-serif;
+    line-height: 1.7rem;
+    margin-bottom: 0.9rem;
+}
+
+.box-form {
+    /* border: 2px dashed rgb(255, 187, 0); */
+
+    display: flex;
+    justify-content: flex-start;
+}
+
+.text-area .btn-2 {
+
+    /* border: 2px dashed rgb(55, 0, 255); */
+
+
+    min-height: 40px;
+    min-width: 150px;
+    /* align-self: baseline; */
+    padding: 10px 25px;
+    font-family: futura;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.15em;
+    /* text-transform: uppercase; */
+    font-size: 1.2rem;
+    background-color: rgb(26, 26, 26);
+    border: none;
+    box-shadow: 0 5px 10px -5px rgb(83, 83, 83);
+    transition: all 0.2s;
+    cursor: pointer;
+
+}
+
+.box-form input {
+
+    /* border: 2px dashed rgb(0, 255, 55); */
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.x {
+
+    /* border: 2px dashed rgb(0, 156, 34); */
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: -30px;
+    right: -30px;
+    z-index: 11;
+    font-size: 2rem;
+    font-family: futura;
+    cursor: pointer;
+    
 }
