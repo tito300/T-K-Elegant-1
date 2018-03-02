@@ -1,3 +1,6 @@
+import {scroller} from './scroller.js'
+
+
 const img = document.querySelector(".img");
 const imgH2 = document.querySelector("h2");
 const imgP = document.querySelector(".text");
@@ -5,7 +8,7 @@ const imgArrow = document.querySelector(".arrow");
 const imgScroll = document.querySelector(".scroll");
 const discoverBtn = document.querySelector(".btn");
 
-
+scroller("body", "section");
 
 
 window.addEventListener("scroll", animateDom);
@@ -48,19 +51,21 @@ function animateDom(e) {
 discoverBtn.addEventListener("click", openBoxModel)
 document.querySelector(".contact").addEventListener("click", openBoxModel);
 document.querySelectorAll(".model").forEach((c)=> {c.addEventListener("click", closeModelBox)});
+const cU = document.querySelector(".contact-us");
+const model = document.querySelector(".model");
 
 function openBoxModel(e) {
     // debugger;
     if(e.target.classList.contains("contact")) {
         // debugger;
-        document.querySelector(".contact-us").style.display = "flex";
-        document.querySelector(".contact-us").classList.remove("hideAfter");
-        document.querySelector(".contact-us").classList.add("show-flex");  
+        cU.style.display = "flex";
+        cU.classList.remove("hideAfter");
+        cU.classList.add("show-flex");  
     } else {
 
-        document.querySelector(".model").style.display = "flex";
-        document.querySelector(".model").classList.remove("hideAfter");
-        document.querySelector(".model").classList.add("show-flex");    
+        model.style.display = "flex";
+        model.classList.remove("hideAfter");
+        model.classList.add("show-flex");    
     }
 }
 
