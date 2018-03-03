@@ -7,7 +7,7 @@ document.querySelector(controller).addEventListener('click', move, true);
 function move(e) {
     // debugger;
     // added this to prevent having to double click on first section before scrolling.
-    console.log(secs[1]);
+    // console.log(secs[1]);
     /*if (e.target.classList.contains('next') && currentSection === 0) {
 
         currentSection++;

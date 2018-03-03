@@ -7,6 +7,7 @@ const imgP = document.querySelector(".text");
 const imgArrow = document.querySelector(".arrow");
 const imgScroll = document.querySelector(".scroll");
 const discoverBtn = document.querySelector(".btn");
+const sect = document.querySelectorAll(".section");
 
 scroller("body", "section");
 
@@ -17,6 +18,31 @@ function animateDom(e) {
 
 
     let offset = (imgH2.getBoundingClientRect().top - window.innerHeight) / 7;
+    let scrollerIn = true;
+    // sect.forEach((c)=> { 
+    //     // debugger;
+
+    //     if(c.getBoundingClientRect().top < 30 && c.getBoundingClientRect().top > -10 ) {
+    //         debugger;
+    //         scrollerIn = true;
+
+    //         break;
+    //     } else { 
+    //         scrollerIn = false;
+    //     }
+    // })
+    for ( let x = 0; x<sect.length; x++) {
+        // debugger;
+
+        if(sect[x].getBoundingClientRect().top < 30 && sect[x].getBoundingClientRect().top > -10 ) {
+            // debugger;
+            scrollerIn = true;
+
+            break;
+        } else { 
+            scrollerIn = false;
+        }
+    }
 
     // console.log(window.scrollY);
 
@@ -36,16 +62,31 @@ function animateDom(e) {
             img.style.backgroundPositionY = 100 + offset + "px";
         }
 
-        if (window.scrollY > 10) {
-            // debugger;
-            // console.log(imgArrow);
-            imgArrow.style.display = "none";
-            imgScroll.style.display = "none";
-        } else if (window.scrollY < 10) {
 
-           setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 1000)
+        for (let i=0;i<10;i++){
+            // debugger;
+            if (/*(window.scrollY > 10 && window.scrollY < window.innerHeight) ||*/ (window.scrollY > (window.innerHeight*(i-1)) + 40 && window.scrollY < window.innerHeight*i - 40) ) {
+                // debugger;
+                // console.log(imgArrow);
+                imgArrow.style.display = "none";
+                imgScroll.style.display = "none";
+            } else if (window.scrollY < 10 || scrollerIn ) {
+                // debugger;
+               setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 1000)
+            }
+            
         }
-        }
+
+        // if ((window.scrollY > 10 && window.scrollY < window.innerHeight) || (window.scrollY > window.innerHeight*mult + 20 && window.scrollY < window.innerHeight*2) ) {
+        //     // debugger;
+        //     // console.log(imgArrow);
+        //     imgArrow.style.display = "none";
+        //     imgScroll.style.display = "none";
+        // } else if (window.scrollY < 10 || scrollerIn ) {
+        //     // debugger;
+        //    setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 500)
+        // }
+     }
 
 
 discoverBtn.addEventListener("click", openBoxModel)
