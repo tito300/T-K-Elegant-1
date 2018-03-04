@@ -260,7 +260,7 @@ span:hover {
     margin: 0 auto;
     position: relative;
     width: 70%;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     margin-top: 50vh;
     /* overflow: hidden; */
     
@@ -397,6 +397,7 @@ span:hover {
     cursor: pointer;
     animation-fill-mode: forwards;
     z-index: 40;
+    display: none;
 
 
 
@@ -416,6 +417,7 @@ span:hover {
     animation-iteration-count: 5;
     animation-fill-mode: forwards;
     z-index: 40;
+    display: none;
 }
 
 @keyframes inOut {
@@ -627,16 +629,16 @@ span:hover {
     
 }
 
-/* ---------------part3 --------------------- */
+/* -----------------------------part3 ------------------------------- */
 
 .part3 {
 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin-top: 10px;
-    margin-bottom: 1000px;
+    /* height: 100vh; */
+    margin-top: 100px;
+    margin-bottom: 200px;
     flex-direction: column;
 }
 
@@ -655,7 +657,7 @@ span:hover {
     /* border: 2px dashed rgb(0, 156, 34); */
     width: 250px;
     /* height: fit-content; */
-    box-shadow: 0 10px 60px -20px rgb(161, 161, 161);
+    box-shadow: -5px 10px 40px -2px rgb(218, 218, 218);
     transform: scale(1);
     transition: all 0.6s;
     cursor: pointer;
@@ -681,9 +683,9 @@ span:hover {
     flex-direction: column;
     align-items: center;
     align-content: space-around;
-    color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(37, 41, 43);
+    background-color: rgb(255, 255, 255);
     flex-grow: 1;
     overflow: hidden;
 }
@@ -730,6 +732,29 @@ span:hover {
     background-size: cover;
 }
 
+.part3 .block-1 {
+     opacity: 0;
+    transform: translate(100%, 30%);
+    transition: all 0.3s;
+}
+.part3 .block-2 {
+    opacity: 0;
+    transform: translate(0, 30%);
+    transition: all 0.3s;
+}
+.part3 .block-3 {
+    opacity: 0;
+    transform: translate(-100%, 30%);
+    transition: all 0.7s;
+
+}
+
+.part3 .block-animate {
+
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
 /* ---------- deal section ------------ */
 
 .deal-section {
@@ -739,8 +764,9 @@ span:hover {
     text-align: center;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(246, 246, 246);
-    background-color: rgb(37, 41, 43);
+    color: rgb(37, 37, 37);
+    background-color: rgb(255, 255, 246);
+    box-shadow: -10px 10px 60px -10px rgb(211, 211, 211);
 
 }
 
@@ -755,12 +781,52 @@ span:hover {
 
 .deal-section h4 {
 
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 25px;
     font-family: futura;
+    font-weight: 800;
 }
 
 .deal-section  .paragraph {
 
-    margin: 0 100px;
+    width: 1000px;
+    margin: 0 auto;
+    text-align: left;
 }
+
+/* ----------------------------- part4 footer ---------------------------- */
+
+
+
+.part4 {
+
+    width: 100%;
+}
+
+.part4 .footer-wrapper {
+
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.part4 .footer-title {
+
+    text-align: center;
+    margin: 30px;
+    font-size: 18px;
+}
+.part4 a {
+
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+

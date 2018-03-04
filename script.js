@@ -8,41 +8,76 @@ const imgArrow = document.querySelector(".arrow");
 const imgScroll = document.querySelector(".scroll");
 const discoverBtn = document.querySelector(".btn");
 const sect = document.querySelectorAll(".section");
+const cU = document.querySelector(".contact-us");
+const model = document.querySelector(".model");
+const part3 =document.querySelector(".part3");
+const blocks =document.querySelectorAll(".block");
+const block1 = document.querySelector(".block-1")
 
 scroller("body", "section");
 
+(()=> { imgArrow.style.display = "block";  imgScroll.style.display = "block" })();
+imgScroll.addEventListener("click", hide);
+imgArrow.addEventListener("click", hide);
+
+function hide() {
+
+    imgArrow.style.display = "none";  imgScroll.style.display = "none";
+}
+
+
 
 window.addEventListener("scroll", animateDom);
-
+let counter = 0;
 function animateDom(e) {
 
 
     let offset = (imgH2.getBoundingClientRect().top - window.innerHeight) / 7;
-    let scrollerIn = true;
-    // sect.forEach((c)=> { 
-    //     // debugger;
+    let scrollerIn = false;
+    // logIt(part3.getBoundingClientRect().top);
 
-    //     if(c.getBoundingClientRect().top < 30 && c.getBoundingClientRect().top > -10 ) {
-    //         debugger;
-    //         scrollerIn = true;
 
-    //         break;
-    //     } else { 
-    //         scrollerIn = false;
-    //     }
-    // })
-    for ( let x = 0; x<sect.length; x++) {
-        // debugger;
+    function logIt(c) {
+        // debugger
+        counter++
+        if(counter === 6){
 
-        if(sect[x].getBoundingClientRect().top < 30 && sect[x].getBoundingClientRect().top > -10 ) {
+            console.log(c);
             // debugger;
-            scrollerIn = true;
-
-            break;
-        } else { 
-            scrollerIn = false;
+            counter=0;
         }
     }
+    
+
+     imgArrow.style.display = "none";  imgScroll.style.display = "none";
+    //  logIt("debugger");
+
+    setTimeout(() => { // Timer to solve scroll problem and catch values after scroll is done
+        for ( let x = 0; x<sect.length; x++) {
+            // debugger;
+            
+            if(sect[x].getBoundingClientRect().top < 150 && sect[x].getBoundingClientRect().top > -50 ) {
+                // debugger;
+                console.log(sect[x].getBoundingClientRect().top);
+                scrollerIn = true;
+                setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 20);
+    
+                break;
+            } else { 
+                scrollerIn = false;
+            }
+        }
+    }, 1000);
+    
+
+    // setTimeout(() => {
+    //     if (scrollerIn) {
+
+    //         setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 500);
+    
+    //     }
+    // }, 1000);
+   
 
     // console.log(window.scrollY);
 
@@ -55,45 +90,42 @@ function animateDom(e) {
 
             imgH2.classList.remove("slidein");
             imgP.classList.remove("slidein");
-        }
+        } 
 
-        if ( imgH2.getBoundingClientRect().top - window.innerHeight <= 0) {
+        if (block1.getBoundingClientRect().top -window.innerHeight <= -150) {
+            // debugger;
+            blocks.forEach((c)=> {
+
+                c.classList.add("block-animate");
+            }) }
+            
+        else if (part3.getBoundingClientRect().top -window.innerHeight >= 100) {
+
+
+            blocks.forEach((c)=> {
+
+                c.classList.remove("block-animate");
+            })
+            }
+
+        if ( imgH2.getBoundingClientRect().top - window.innerHeight <= 0 && imgH2.getBoundingClientRect().top - window.innerHeight >= -1300) {
 
             img.style.backgroundPositionY = 100 + offset + "px";
         }
 
 
-        for (let i=0;i<10;i++){
-            // debugger;
-            if (/*(window.scrollY > 10 && window.scrollY < window.innerHeight) ||*/ (window.scrollY > (window.innerHeight*(i-1)) + 40 && window.scrollY < window.innerHeight*i - 40) ) {
-                // debugger;
-                // console.log(imgArrow);
-                imgArrow.style.display = "none";
-                imgScroll.style.display = "none";
-            } else if (window.scrollY < 10 || scrollerIn ) {
-                // debugger;
-               setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 1000)
-            }
+        // if (window.scrollY < 10 || scrollerIn ) {
+        //         // debugger;
+        //        setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 1000)
+        //     }
             
         }
-
-        // if ((window.scrollY > 10 && window.scrollY < window.innerHeight) || (window.scrollY > window.innerHeight*mult + 20 && window.scrollY < window.innerHeight*2) ) {
-        //     // debugger;
-        //     // console.log(imgArrow);
-        //     imgArrow.style.display = "none";
-        //     imgScroll.style.display = "none";
-        // } else if (window.scrollY < 10 || scrollerIn ) {
-        //     // debugger;
-        //    setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 500)
-        // }
-     }
 
 
 discoverBtn.addEventListener("click", openBoxModel)
 document.querySelector(".contact").addEventListener("click", openBoxModel);
 document.querySelectorAll(".model").forEach((c)=> {c.addEventListener("click", closeModelBox)});
-const cU = document.querySelector(".contact-us");
-const model = document.querySelector(".model");
+
 
 function openBoxModel(e) {
     // debugger;
