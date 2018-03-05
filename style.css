@@ -11,6 +11,36 @@
     box-sizing: border-box;
 }
 
+.loading {
+
+    background-color: rgb(11, 11, 44);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: all 0.8s;
+}
+
+.loading-img {
+
+
+    /* background-image: url(imgs/loading-1.gif); */
+    z-index: 101;
+
+}
+
+.hide-loader {
+
+    pointer-events: none;
+    opacity: 0;
+}
+
 .fade-top {
 
     height: 1px;
@@ -78,7 +108,8 @@ span {
 
 span:hover {
 
-    transform: scale(1.1);
+    transform: scale(1.2);
+    color: rgb(17, 17, 71);
 }
 
 .meta {
@@ -176,7 +207,7 @@ span:hover {
 
     /* border: 1px dashed red; */
     position: absolute;
-    top: 35px;
+    top: 23px;
     left: 50%;
     transform: translate(-50%);
     background-color: rgb(63, 63, 63);
@@ -186,6 +217,7 @@ span:hover {
     pointer-events: none;
     height: 0px;
     transition: all 0.4s;
+    margin-top: 10px;
     
 }
 
@@ -193,6 +225,7 @@ span:hover {
     pointer-events: fill;
     opacity: 1;
     min-height: 300px;
+    transition: all 0.4;
 }
 
 
@@ -581,7 +614,7 @@ span:hover {
 
 .contact-us .box-form textarea {
     /* width: 20px; */
-    height: 200px;
+    height: 250px;
     margin-bottom: 10px;
 }
 

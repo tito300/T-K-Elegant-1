@@ -1,4 +1,6 @@
-import {scroller} from './scroller.js'
+import {scroller} from './scroller.js';
+import {scrollerAnimation} from './fade-in-out-betweenSections.js';
+
 
 
 const img = document.querySelector(".img");
@@ -14,11 +16,15 @@ const part3 =document.querySelector(".part3");
 const blocks =document.querySelectorAll(".block");
 const block1 = document.querySelector(".block-1")
 
+
+
+document.addEventListener("DOMContentLoaded", runLoader);
 scroller("body", "section");
 
 (()=> { imgArrow.style.display = "block";  imgScroll.style.display = "block" })();
 imgScroll.addEventListener("click", hide);
 imgArrow.addEventListener("click", hide);
+
 
 function hide() {
 
@@ -51,32 +57,25 @@ function animateDom(e) {
 
      imgArrow.style.display = "none";  imgScroll.style.display = "none";
     //  logIt("debugger");
-
-    setTimeout(() => { // Timer to solve scroll problem and catch values after scroll is done
-        for ( let x = 0; x<sect.length; x++) {
-            // debugger;
+    scrollerAnimation(sect, imgArrow, imgScroll);
+    // setTimeout(() => { // Timer to solve scroll problem and catch values after scroll is done
+    //     for ( let x = 0; x<sect.length; x++) {
+    //         // debugger;
             
-            if(sect[x].getBoundingClientRect().top < 150 && sect[x].getBoundingClientRect().top > -50 ) {
-                // debugger;
-                console.log(sect[x].getBoundingClientRect().top);
-                scrollerIn = true;
-                setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 20);
+    //         if(sect[x].getBoundingClientRect().top < 150 && sect[x].getBoundingClientRect().top > -100 && sect[x+1]) {
+    //             // debugger;
+    //             // console.log(sect[x].getBoundingClientRect().top);
+    //             scrollerIn = true;
+    //             setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 20);
     
-                break;
-            } else { 
-                scrollerIn = false;
-            }
-        }
-    }, 1000);
-    
-
-    // setTimeout(() => {
-    //     if (scrollerIn) {
-
-    //         setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 500);
-    
+    //             break; 
+    //         }
+    //         // } else { 
+    //         //     scrollerIn = false;
+    //         // }
     //     }
     // }, 1000);
+    
    
 
     // console.log(window.scrollY);
@@ -114,10 +113,6 @@ function animateDom(e) {
         }
 
 
-        // if (window.scrollY < 10 || scrollerIn ) {
-        //         // debugger;
-        //        setTimeout(()=> {imgArrow.style.display = "block";  imgScroll.style.display = "block"}, 1000)
-        //     }
             
         }
 
@@ -159,4 +154,14 @@ function closeModelBox(e) {
     
     // document.querySelector(".model").classList.remove("show-flex");
     // document.querySelector(".model").classList.add("hideAfter");
+}
+
+
+function runLoader() {
+    // debugger;
+    setTimeout(() => {
+        // document.querySelector("body").scrollIntoView();
+        document.querySelector(".loading").classList.add("hide-loader");
+        document.querySelector(".loading-img").classList.add("hide-loader");
+    }, 1000);
 }
