@@ -5,21 +5,14 @@ var currentSection = 0;
 document.querySelector(controller).addEventListener('click', move, true);
 
 function move(e) {
-    // debugger;
-    // added this to prevent having to double click on first section before scrolling.
-    // console.log(secs[1]);
-    /*if (e.target.classList.contains('next') && currentSection === 0) {
-
-        currentSection++;
-        secs[currentSection].scrollIntoView({behavior: 'smooth'});
-    } else */ if (e.target.classList.contains('next') && currentSection < secs.length) {
-        console.log("fired");
+     if (e.target.classList.contains('next') && currentSection < secs.length) {
+        // console.log("fired");
         // debugger;
-         secs[++currentSection].scrollIntoView({ behavior: 'smooth' });}
+         secs[++currentSection].scrollIntoView({ behavior: 'smooth' , block: "start"});}
 
     else if (e.target.classList.contains('next') && currentSection === secs.length){
 
-        currentSection = 1;
+        currentSection = 0;
 
     }   
     
@@ -47,10 +40,8 @@ function updateCurrent(e) {
     
     // check if more than half of the section is in view then update the currentSection to reflect that
     if (c.getBoundingClientRect().top < (c.clientHeight/10)  &&  c.getBoundingClientRect().top > (-c.clientHeight/10))  {
-        // console.log(c.getBoundingClientRect());
-        // console.log(c.id);
+       
         currentSection = parseInt(c.id); 
-        // console.log(currentSection);
 
     }
   })

@@ -160,7 +160,7 @@ function closeModelBox(e) {
 function runLoader() {
     // debugger;
     setTimeout(() => {
-        // document.querySelector("body").scrollIntoView();
+        window.scroll(0,0);
         document.querySelector(".loading").classList.add("hide-loader");
         document.querySelector(".loading-img").classList.add("hide-loader");
     }, 1000);

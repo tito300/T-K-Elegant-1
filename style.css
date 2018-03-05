@@ -123,11 +123,10 @@ span:hover {
     color: rgb(87, 87, 87);
 }
 
-/* .part1 {
-
-    border: 2px solid gray;
-    padding 10px;
-} */
+body .part1 {
+    
+    height: 260px;
+}
 
 /* ------------- NAV BAR --------------- */
 
@@ -670,7 +669,7 @@ span:hover {
     justify-content: center;
     align-items: center;
     /* height: 100vh; */
-    margin-top: 100px;
+    margin-top: 120px;
     margin-bottom: 200px;
     flex-direction: column;
 }
@@ -857,7 +856,10 @@ span:hover {
 
 
 
+.section {
 
+    border: 1px dashed transparent;
+}
 
 
 
